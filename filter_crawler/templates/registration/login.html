@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign in &middot; Twitter Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="span4"></div>
+      <div class="span4">
+        <div class="well">
+            <h1>User Login</h1>
+            {% if form.errors %}
+                <div class="alert alert-error">
+                  Your username or password didn't match.
+                </div>
+            {% endif %}
+            <form method="post" action="."> {% csrf_token %}
+                <div class="alert alert-info">
+                  <p><label for="username">Username:</label>
+                  {{ form.username }}</p>
+                  <p><label for="password">Password:</label>
+                  {{ form.password }}</p>
+                  <input type="hidden" name="next" value="search" />
+                  <input type="submit" value="Login" />
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
